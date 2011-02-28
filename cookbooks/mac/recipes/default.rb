@@ -29,6 +29,12 @@ file "/usr/local/Cellar/htop/HEAD/bin/htop" do
   mode      "6555"
 end
 
+cookbook_file "#{homedir}/.htoprc" do
+  source  "_htoprc"
+  owner   node[:current_user]
+  group   "staff"
+end
+
 template "#{homedir}/.nabaztag" do
   source    "_nabaztag.erb"
   owner     node[:current_user]
